@@ -1,0 +1,27 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Left ring -->
+  <g transform="translate(140, 150)">
+    <!-- Outer ring -->
+    <circle cx="0" cy="0" r="50" fill="none" stroke="#D4AF37" stroke-width="8"/>
+    <!-- Inner shadow -->
+    <circle cx="0" cy="0" r="50" fill="none" stroke="#C5A028" stroke-width="3" opacity="0.5"/>
+    <!-- Highlight -->
+    <path d="M -30,-35 A 50,50 0 0,1 30,-35" fill="none" stroke="#F4E4B7" stroke-width="4" opacity="0.7"/>
+  </g>
+  
+  <!-- Right ring (overlapping) -->
+  <g transform="translate(210, 150)">
+    <!-- Outer ring -->
+    <circle cx="0" cy="0" r="50" fill="none" stroke="#D4AF37" stroke-width="8"/>
+    <!-- Inner shadow -->
+    <circle cx="0" cy="0" r="50" fill="none" stroke="#C5A028" stroke-width="3" opacity="0.5"/>
+    <!-- Highlight -->
+    <path d="M -30,-35 A 50,50 0 0,1 30,-35" fill="none" stroke="#F4E4B7" stroke-width="4" opacity="0.7"/>
+  </g>
+  
+  <!-- Small decorative diamond on left ring -->
+  <g transform="translate(140, 90)">
+    <path d="M 0,-8 L 4,0 L 0,8 L -4,0 Z" fill="#D4AF37"/>
+    <path d="M 0,-6 L 2,0 L 0,6 L -2,0 Z" fill="#F4E4B7"/>
+  </g>
+</svg>
