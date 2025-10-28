@@ -13,9 +13,19 @@ module.exports = {
           DEFAULT: '#C8A2C8',
           dark: '#9370DB',
         },
+        gold: {
+          DEFAULT: '#D4AF37',
+          dark: '#B8941C',
+        },
+        pink: {
+          100: '#F5E6F0',
+          200: '#E8C4D8',
+        },
       },
       fontFamily: {
         cursive: ['Dancing Script', 'cursive'],
+        elegant: ['Fleur De Leah', 'cursive'],
+        logo: ['Mea Culpa', 'cursive'],
       },
     },
   },

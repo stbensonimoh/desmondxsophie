@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @layer base {
   html,
@@ -9,4 +7,18 @@
     margin: 0;
     padding: 0;
   }
+}
+
+@font-face {
+  font-family: 'Fleur De Leah';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://fonts.gstatic.com/s/fleurdeleah/v8/AYCNpXX7ftYZWLhv9UmPJTMC5vat4I_Gdg.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Mea Culpa';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://fonts.gstatic.com/s/meaculpa/v8/AYCNpXX7ftYZWLhv9UmPJTMC5vat4I_Gdg.woff2') format('woff2');
 }
