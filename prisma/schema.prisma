@@ -1,0 +1,69 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum RSVPStatus {
+  YES
+  NO
+  MAYBE
+}
+
+model Guest {
+  id        String       @id @default(cuid())
+  fullName  String
+  nameSlug  String       @unique
+  email     String?      @unique
+  phone     String?      // set/validated at RSVP; stored E.164 +234...
+  note      String?
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+
+  codes     InviteCode[]
+  responses RsvpResponse[]
+
+  @@index([nameSlug])
+}
+
+model InviteCode {
+  id            String       @id @default(cuid())
+  code          String       @unique
+  maxAttendees  Int          @default(1)
+  assignedToId  String?
+  assignedTo    Guest?       @relation(fields: [assignedToId], references: [id])
+  usedAt        DateTime?
+  response      RsvpResponse?
+
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+}
+
+model RsvpResponse {
+  id          String      @id @default(cuid())
+  guestId     String
+  codeId      String      @unique
+  status      RSVPStatus
+  attendees   Int         @default(1)
+  note        String?
+  respondedAt DateTime    @default(now())
+
+  guest       Guest       @relation(fields: [guestId], references: [id])
+  code        InviteCode  @relation(fields: [codeId], references: [id])
+
+  @@index([guestId, status])
+}
+
+model OutboxEvent {
+  id           String   @id @default(cuid())
+  type         String
+  payload      Json
+  createdAt    DateTime @default(now())
+  processedAt  DateTime?
+  tries        Int      @default(0)
+
+  @@index([processedAt, type])
+}
