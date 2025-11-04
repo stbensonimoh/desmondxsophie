@@ -4,6 +4,7 @@ import { signInviteToken } from '@/lib/token'
 import Link from 'next/link'
 
 export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs'
 
 export default async function InvitePage({
   params,
@@ -72,8 +73,55 @@ export default async function InvitePage({
       <h1 className="text-3xl font-serif">You’re Invited</h1>
       <p className="mt-6 text-lg">Dear {guest.fullName},</p>
       <p className="mt-4">We are thrilled to invite you to celebrate our special day with us.</p>
-      <p className="mt-4">Your invitation admits up to {allowed} {allowed > 1 ? 'guests' : 'guest'}.</p>
+      <p className="mt-4 font-bold">Your invitation admits up to {allowed} {allowed > 1 ? 'guests' : 'guest'}.</p>
       <div className="mt-8">
+        <p>
+          We have some incredibly exciting news: We're taking the bold, most joyful step of our lives, we're getting married!..and we're over the moon about it.
+        </p>
+        
+        <p>
+          As we exchange vows and celebrate the beginning of our forever, we would be deeply honored if you would join us for our wedding ceremony.
+        </p>
+        
+        <div className="bg-gray-50 p-4 rounded-lg">
+          <h3 className="font-semibold text-gray-900 mb-2">Key Details</h3>
+          <div className="space-y-1">
+        <p><span className="font-medium">Date:</span> Saturday 6th December 2025</p>
+        <p><span className="font-medium">Time:</span> 2:00 PM</p>
+        <p><span className="font-medium">Venue:</span> To be communicated after RSVP.</p>
+          </div>
+        </div>
+        
+        <p>
+          Our decision to keep the event small and intimate with only our closest friends and family stems from our desire to share this meaningful moment with the people who mean the most to us. You hold a special place in our hearts, and your presence would mean the world to us.
+        </p>
+        
+        <p>
+          However, we understand that schedules and commitments can vary, so please know that your well wishes are equally cherished, whether you can attend or not.
+        </p>
+        
+        <div className="bg-amber-50 border-l-4 border-amber-400 p-4">
+          <h4 className="font-semibold text-amber-900 mb-2">Adults-Only Celebration</h4>
+          <p className="text-amber-800">
+        While we adore and cherish the little ones in our lives, we have made the decision to make this event an Adults-Only Affair. We hope you understand our choice, as it allows us to create a serene and relaxed atmosphere where we can fully enjoy your company and celebrate together.
+          </p>
+        </div>
+        
+        <p>
+          Please know that your children are always dear to us, and we look forward to having opportunities to celebrate with them in the future. We trust that you will be able to make suitable childcare arrangements so that you can join us for this special occasion.
+        </p>
+        
+        <p>
+          As we prepare for this intimate gathering, we want to kindly emphasize that our wedding ceremony is a private event and is strictly by invitation.
+        </p>
+        
+        <p className="text-center font-medium">
+          We truly hope to see you on this special day, but most importantly, we are grateful for your presence in our lives.
+        </p>
+        
+        <p className="text-center italic mb-4">
+          With love and anticipation.
+        </p>
         <Link
           href={`/rsvp?token=${encodeURIComponent(token)}`}
           prefetch={false}
