@@ -56,7 +56,7 @@ Update the following in your `.env` file:
 - `DATABASE_URL`: Should match your local MySQL setup.
 - `INVITE_TOKEN_SECRET`: A long, random string for signing tokens.
 - `INVITE_ADMIN_PASSWORD`: A strong password for the admin dashboard.
-- `SMS_API_URL` & `SMS_API_KEY`: Your SMS provider's credentials (optional).
+- `SMS_API_URL` & `SMS_API_TOKEN`: Your SMS provider's credentials (optional).
 
 ### 4. Start the Database
 

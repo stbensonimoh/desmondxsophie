@@ -12,6 +12,7 @@
     "prisma:migrate": "prisma migrate dev",
     "db:push": "prisma db push",
     "seed": "tsx scripts/seed.ts",
+    "test:sms": "tsx scripts/testSms.ts",
     "db:up": "docker compose up -d db",
     "db:down": "docker compose down",
     "db:logs": "docker compose logs -f db",
