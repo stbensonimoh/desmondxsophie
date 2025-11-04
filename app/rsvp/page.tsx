@@ -2,7 +2,6 @@ import { prisma } from '@/lib/prisma'
 import type { Prisma } from '@prisma/client'
 import { verifyInviteToken } from '@/lib/token'
 import { normalizeNgPhone } from '@/lib/phone'
-import { sendSms } from '@/lib/sms'
 import { redirect } from 'next/navigation'
 
 export const dynamic = 'force-dynamic'
@@ -77,20 +76,27 @@ async function submitAction(formData: FormData) {
     })
   })
 
-  try {
-    const message =
-      status === 'YES'
-        ? `Thanks ${guest.fullName}! Your RSVP for ${count} is confirmed.`
-        : status === 'NO'
-        ? `Thanks ${guest.fullName}. Sorry you can’t make it—wishing you well!`
-        : `Thanks ${guest.fullName}. Let us know when you decide.`
+  const message =
+    status === 'YES'
+      ? `Hello! We are thrilled to hear that you'll be attending our wedding lunch! Your positive response has filled our hearts with joy, and we can't wait to celebrate this special day with you.
 
-    await sendSms(phone!, message)
-  } catch (e) {
-    console.warn('SMS error', e)
-  }
+We look forward to sharing the joy with you on our big day!
 
-  redirect('/rsvp/thanks')
+Desmond & Sophie`
+      : status === 'NO'
+      ? `Hello! Thank you for taking the time to RSVP to our wedding. We appreciate your response, and while we'll miss having you with us on our special day, we understand that sometimes other commitments come first.
+
+Your thoughtfulness in responding means a lot to us. We hope you have a wonderful day, and we'll be sure to celebrate together another time.
+
+Wishing you all the best,
+Desmond & Sophie`
+      : `Thanks for responding. Kindly let us know when you decide.
+
+Desmond & Sophie`
+
+  // Redirect to thanks page with the message
+  const encodedMessage = encodeURIComponent(message)
+  redirect(`/rsvp/thanks?message=${encodedMessage}`)
 }
 
 export default async function RsvpPage({
