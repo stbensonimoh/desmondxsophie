@@ -90,7 +90,7 @@ function genCode() {
 async function exportGuestListAction() {
   'use server'
   if (!(await requireAdmin())) redirect('/admin')
-  redirect('/admin?exported=true')
+  redirect('/api/admin/export-csv')
 }
 
 export default async function AdminPage({ 
@@ -179,9 +179,9 @@ export default async function AdminPage({
         </form>
       </div>
 
-      {(resolvedSearchParams as any).exported && (
+      {(resolvedSearchParams as any).created && (
         <div className="mb-4 rounded bg-green-50 border border-green-200 p-3 text-green-800">
-          Guest list export initiated (feature to be implemented)
+          Guest created successfully!
         </div>
       )}
 

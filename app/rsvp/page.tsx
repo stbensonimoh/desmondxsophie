@@ -137,9 +137,11 @@ export default async function RsvpPage({
   return (
     <div className="mx-auto max-w-xl p-8">
       <h1 className="text-2xl font-semibold text-center">RSVP</h1>
-      <p className="mt-2 text-center text-gray-700">
-        Hi {guest.fullName}, your invite allows up to {invite.maxAttendees}.
-      </p>
+      <div className="mt-4 space-y-4 text-sm leading-relaxed text-gray-700">
+        <p className="text-center font-medium">
+          Hi {guest.fullName}, your invite allows up to {invite.maxAttendees}.
+        </p>
+      </div>
       <form action={submitAction} className="mt-6 space-y-4">
   <input type="hidden" name="token" value={tokenParam} />
 
