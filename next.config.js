@@ -1,15 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    serverComponentsExternalPackages: ['@prisma/client', 'prisma'],
-  },
-  // Ensure Prisma engines are bundled
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      config.externals = [...(config.externals || []), '@prisma/client']
-    }
-    return config
-  },
+  // Next.js 16+ uses serverExternalPackages instead of experimental.serverComponentsExternalPackages
+  serverExternalPackages: ['@prisma/client', 'prisma'],
+  // Enable Turbopack configuration (required in Next.js 16)
+  turbopack: {},
 }
 
 module.exports = nextConfig
