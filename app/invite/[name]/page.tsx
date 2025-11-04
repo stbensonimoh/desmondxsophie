@@ -4,6 +4,7 @@ import { signInviteToken } from '@/lib/token'
 import Link from 'next/link'
 
 export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs'
 
 export default async function InvitePage({
   params,

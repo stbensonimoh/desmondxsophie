@@ -5,6 +5,7 @@ import { normalizeNgPhone } from '@/lib/phone'
 import { redirect } from 'next/navigation'
 
 export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs'
 
 async function getContext(token: string | null) {
   if (!token) return null

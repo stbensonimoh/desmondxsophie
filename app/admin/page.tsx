@@ -6,6 +6,7 @@ import { redirect } from 'next/navigation'
 import { CopyLinkButton, PrintButton, CopyInviteLink } from './ClientButtons'
 
 export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs'
 
 async function loginAction(formData: FormData) {
   'use server'
